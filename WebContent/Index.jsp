@@ -1,7 +1,9 @@
+<%@page import="aplicacion.modelo.ejb.CrackabilidadEJB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="javax.ejb.*"%>
-<%@ page import="aplicacion.modelo.ejb.CrackabilidadEJB"%>
+<%@ page import="aplicacion.modelo.ejb.CrackabilidadEJBRemote"%>
+<%@ page import="javax.naming.InitialContext" %>
+<%@ page import="javax.naming.Context" %>
 <html>
 <head>
 <title>Propaganda anti-hacker</title>
@@ -34,13 +36,19 @@
 	</form>
 	<div id="resultado">
 		<%!
-			@EJB
-			CrackabilidadEJB calc;
+			CrackabilidadEJBRemote calc;
 		%>
 		<%
 			String password = request.getParameter("password");
 			String procesador = request.getParameter("procesador");
 			if(password != null & procesador != null){
+				Context context = null;
+				try{
+					context = new InitialContext();
+					calc = (CrackabilidadEJBRemote) context.lookup("java:global/Actividad3.2/src/aplicacion/modelo/ejb/CrackabilidadEJB.java");
+				} catch(Exception e){
+					e.printStackTrace();
+				}
 				out.println(calc.calcularTiempo(password,procesador));
 			}
 		%>

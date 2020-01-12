@@ -11,7 +11,7 @@ import javax.ejb.Stateless;
 
 @Stateless
 @LocalBean
-public class CrackabilidadEJB {
+public class CrackabilidadEJB implements CrackabilidadEJBRemote {
 
 	@EJB
 	private FormatoTiempoEJB tiempoQTarda;
@@ -25,6 +25,7 @@ public class CrackabilidadEJB {
 	};
 	private String tipoDeProcesador = "";
 
+	@Override
 	public String calcularTiempo(String password, String tipoProcesador) {
 		Set<String> keys = procesadores.keySet();
 
@@ -38,6 +39,7 @@ public class CrackabilidadEJB {
 		return this.tiempoQTarda.getTimeData().toString();
 	}
 
+	@Override
 	public BigDecimal calculo(int longitudPassword) {
 		BigDecimal combinaciones = new BigDecimal(Math.pow(256, longitudPassword));
 		int div = procesadores.get(tipoDeProcesador);
