@@ -25,6 +25,14 @@ public class CrackabilidadEJB {
 	};
 	private String tipoDeProcesador = "";
 
+	/***
+	 * Calcula el tiempo que se tardaría en forzar la contraseña con ese tipo de
+	 * procesador
+	 * 
+	 * @param password       Contraseña que escribe el usuario
+	 * @param tipoProcesador Procesador que selecciona el usuario
+	 * @return String con el tiempo que tardaría
+	 */
 	public String calcularTiempo(String password, String tipoProcesador) {
 		Set<String> keys = procesadores.keySet();
 
@@ -38,6 +46,12 @@ public class CrackabilidadEJB {
 		return this.tiempoQTarda.getTimeData().toString();
 	}
 
+	/***
+	 * Calcula lo que tardaría el procesador en forzar la contraseña
+	 * 
+	 * @param longitudPassword Tamaño de la contraseña
+	 * @return Los segundos que tardaría
+	 */
 	public BigDecimal calculo(int longitudPassword) {
 		BigDecimal combinaciones = new BigDecimal(Math.pow(256, longitudPassword));
 		int div = procesadores.get(tipoDeProcesador);

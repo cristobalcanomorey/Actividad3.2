@@ -14,6 +14,12 @@ public class FormatoTiempoEJB {
 
 	private TimeData timeData;
 
+	/***
+	 * Formatea los segundos en años, meses, días, horas, minutos y segundos y los
+	 * guarda en el objeto timeData
+	 * 
+	 * @param s Segundos que tardaría
+	 */
 	public void setTiempo(BigDecimal s) {
 		BigDecimal segundosTotal = s;
 		int segundos = segundosTotal.remainder(new BigDecimal(60)).intValue();
@@ -30,6 +36,11 @@ public class FormatoTiempoEJB {
 		this.timeData = new TimeData(segundos, minutos, horas, dias, meses, years);
 	}
 
+	/***
+	 * Obtiene el objeto timeData
+	 * 
+	 * @return timeData
+	 */
 	public TimeData getTimeData() {
 		return timeData;
 	}

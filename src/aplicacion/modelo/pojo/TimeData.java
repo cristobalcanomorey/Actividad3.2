@@ -42,7 +42,7 @@ public class TimeData {
 	}
 
 	/***
-	 * Concatena todas las unidades de tiempo en un string.
+	 * Muestra los datos
 	 */
 	@Override
 	public String toString() {

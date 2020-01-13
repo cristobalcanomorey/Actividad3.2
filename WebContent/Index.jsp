@@ -26,7 +26,7 @@
 				<input type="password" name="password" id="password" placeholder="Escribe la contraseña">
 			</div>
 			<div id="derecha">
-<!-- 				<p>Pon a prueba sus 'ganzúas'</p> -->
+				<p>Pon a prueba sus 'ganzúas'</p>
 				<input type="radio" name="procesador" value="cpu" checked="">CPU
 				<input type="radio" name="procesador" value="gpu">GPU
 				<input type="radio" name="procesador" value="grid">Grid
@@ -46,14 +46,17 @@
 				Context context = null;
 				try{
 					context = new InitialContext();
+					/*Declara las variables de los EJB*/
 					calc = (CrackabilidadEJB) context.lookup("java:global/Actividad3.2/CrackabilidadEJB");
 					comunes = (PasswordsComunesEJB) context.lookup("java:global/Actividad3.2/PasswordsComunesEJB");
 				} catch(Exception e){
 					e.printStackTrace();
 				}
 				if(comunes.esComun(password)){
+					/*Si es una contraseña común redirige a otra página web*/
 					response.sendRedirect("https://edition.cnn.com/2019/04/22/uk/most-common-passwords-scli-gbr-intl/index.html");
 				} else{
+					/*Si no, muestra el resultado del cálculo*/
 					out.println(calc.calcularTiempo(password,procesador));
 				}
 			}
