@@ -1,4 +1,3 @@
-<%@page import="aplicacion.modelo.ejb.CrackabilidadEJB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="aplicacion.modelo.ejb.CrackabilidadEJB"%>
