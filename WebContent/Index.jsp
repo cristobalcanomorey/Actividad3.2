@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="aplicacion.modelo.ejb.CrackabilidadEJB"%>
+<%@ page import="aplicacion.modelo.ejb.PasswordsComunesEJB"%>
 <%@ page import="javax.naming.InitialContext" %>
 <%@ page import="javax.naming.Context" %>
 <html>
@@ -36,6 +37,7 @@
 	<div id="resultado">
 		<%!
 			CrackabilidadEJB calc;
+			PasswordsComunesEJB comunes;
 		%>
 		<%
 			String password = request.getParameter("password");
@@ -45,10 +47,15 @@
 				try{
 					context = new InitialContext();
 					calc = (CrackabilidadEJB) context.lookup("java:global/Actividad3.2/CrackabilidadEJB");
+					comunes = (PasswordsComunesEJB) context.lookup("java:global/Actividad3.2/PasswordsComunesEJB");
 				} catch(Exception e){
 					e.printStackTrace();
 				}
-				out.println(calc.calcularTiempo(password,procesador));
+				if(comunes.esComun(password)){
+					response.sendRedirect("https://edition.cnn.com/2019/04/22/uk/most-common-passwords-scli-gbr-intl/index.html");
+				} else{
+					out.println(calc.calcularTiempo(password,procesador));
+				}
 			}
 		%>
 	</div>

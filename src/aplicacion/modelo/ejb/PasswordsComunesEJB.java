@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
-@Stateless
+@Stateless(mappedName = "PasswordsComunesEJB")
 @LocalBean
 public class PasswordsComunesEJB {
 
