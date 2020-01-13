@@ -13,12 +13,12 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<!-- 	<h1>¡No quieres saber de lo que son capaces!</h1> -->
-<!-- 	<h3> -->
-<!-- 		¡Una contraseña <span class="importante">fácil de recordar</span> es -->
-<!-- 		una contraseña <span class="importante">fácil de robar</span>! -->
-<!-- 	</h3> -->
-<!-- 	<img src="imgs/Hack.jpg" alt="imgHacker"> -->
+	<h1>¡No quieres saber de lo que son capaces!</h1>
+	<h3>
+		¡Una contraseña <span class="importante">fácil de recordar</span> es
+		una contraseña <span class="importante">fácil de robar</span>!
+	</h3>
+	<img src="imgs/Hack.jpg" alt="imgHacker">
 	<form method="POST" action="Index.jsp">
 		<div>
 			<div id="izquierda">
@@ -62,11 +62,11 @@
 			}
 		%>
 	</div>
-<!-- 	<footer id="pie"> -->
-<!-- 		<h2> -->
-<!-- 			¡Comprueba <span class="importante">tu contraseña</span> antes de que -->
-<!-- 			sea DEMASIADO TARDE! -->
-<!-- 		</h2> -->
-<!-- 	</footer> -->
+	<footer id="pie">
+		<h2>
+			¡Comprueba <span class="importante">tu contraseña</span> antes de que
+			sea DEMASIADO TARDE!
+		</h2>
+	</footer>
 </body>
 </html>
